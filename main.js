@@ -2,7 +2,7 @@ noseX = 0;
 noseY = 0;
 
 function preload(){//precarga de cosas
-
+    clown_nose = loadImage('https://i.postimg.cc/xj4mDm0n/ultimo.webp');
 }
 
 function setup(){//configuraciones 
@@ -18,8 +18,8 @@ function setup(){//configuraciones
 function gotPoses(results){
 if(results.length > 0){
     console.log(results);
-    noseX = results[0].pose.nose.x;
-    noseY = results[0].pose.nose.y;
+    noseX = results[0].pose.nose.x-35;
+    noseY = results[0].pose.nose.y+20;
     console.log("posicion x = "+ results[0].pose.nose.x);
     console.log("posicion y = "+ results[0].pose.nose.y);
 }
@@ -27,6 +27,7 @@ if(results.length > 0){
 
 function draw(){//dibujos
 image(video, 0, 0, 300, 300);
+image(clown_nose,noseX,noseY,70,50)
 }
 
 function tomar_foto(){
